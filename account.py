@@ -16,11 +16,6 @@ users_ref = db.collection("user")
 from streamlit.components.v1 import html
 
 
-
-def app():
-
-
-
 def auto_share_kakao():
     js_code = """
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js"
@@ -70,12 +65,15 @@ def auto_share_kakao():
     """
     html(js_code, height=0)
 
-    def logOut():
-        st.session_state.signedIn = False
-        st.session_state.username = ''
-        st.session_state.useremail = ''
-        st.experimental_rerun()  # 페이지 리로드
+def logOut():
+    st.session_state.signedIn = False
+    st.session_state.username = ''
+    st.session_state.useremail = ''
+    st.experimental_rerun()  # 페이지 리로드
 
+
+
+def app():
 
     st.text('Name '+ st.session_state.username)
     st.text('Email id: ' + st.session_state.useremail)

@@ -4,3 +4,4 @@ firebase_admin
 numpy
 matplotlib
 plotly
+streamlit_option_menu

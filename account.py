@@ -18,18 +18,16 @@ from streamlit.components.v1 import html
 
 def auto_share_kakao():
     js_code = """
-            <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js"
-              integrity="sha384-kDljxUXHaJ9xAb2AzRd59KxjrFjzHa5TAoFQ6GbYTCAG0bjM55XohjjDT7tDDC01" crossorigin="anonymous"></script>
-            <script>
-              Kakao.init('5ee6d3f7586bfec6cbc07ca8f29ebb47'); // 사용하려는 앱의 JavaScript 키 입력
-            </script>
-            
+    
             <a id="kakaotalk-sharing-btn" href="javascript:;">
               <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
                 alt="카카오톡 공유 보내기 버튼" />
             </a>
-            
+
+            <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js"
+                integrity="sha384-kDljxUXHaJ9xAb2AzRd59KxjrFjzHa5TAoFQ6GbYTCAG0bjM55XohjjDT7tDDC01" crossorigin="anonymous"></script>
             <script>
+              Kakao.init('5ee6d3f7586bfec6cbc07ca8f29ebb47'); // 사용하려는 앱의 JavaScript 키 입력
               Kakao.Share.createDefaultButton({
                 container: '#kakaotalk-sharing-btn',
                 objectType: 'feed',
@@ -44,27 +42,6 @@ def auto_share_kakao():
                     webUrl: 'https:\/\/orengewebapp.onrender.com',
                   },
                 },
-                social: {
-                  likeCount: 286,
-                  commentCount: 45,
-                  sharedCount: 845,
-                },
-                buttons: [
-                  {
-                    title: '웹으로 보기',
-                    link: {
-                      mobileWebUrl: 'https://developers.kakao.com',
-                      webUrl: 'https://developers.kakao.com',
-                    },
-                  },
-                  {
-                    title: '앱으로 보기',
-                    link: {
-                      mobileWebUrl: 'https://developers.kakao.com',
-                      webUrl: 'https://developers.kakao.com',
-                    },
-                  },
-                ],
               });
             </script>
     """

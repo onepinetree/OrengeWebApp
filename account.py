@@ -21,7 +21,8 @@ def auto_share_kakao():
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js"
       integrity="sha384-kDljxUXHaJ9xAb2AzRd59KxjrFjzHa5TAoFQ6GbYTCAG0bjM55XohjjDT7tDDC01" crossorigin="anonymous"></script>
     <script>
-      Kakao.init('7de421478d7cb865dd848740af8758d8'); // 사용하려는 앱의 JavaScript 키 입력
+      Kakao.init('5ee6d3f7586bfec6cbc07ca8f29ebb47'); // 사용하려는 앱의 JavaScript 키 입력
+      
 
       function shareMessage() {
         Kakao.Share.sendDefault({
@@ -31,31 +32,10 @@ def auto_share_kakao():
             description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
             imageUrl: 'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
             link: {
-              mobileWebUrl: 'https://orengewebapp.onrender.com',
-              webUrl: 'https://orengewebapp.onrender.com',
+              mobileWebUrl: 'https:\/\/orengewebapp.onrender.com',
+              webUrl: 'https:\/\/orengewebapp.onrender.com',
             },
           },
-          social: {
-            likeCount: 286,
-            commentCount: 45,
-            sharedCount: 845,
-          },
-          buttons: [
-            {
-              title: '웹으로 보기',
-              link: {
-                mobileWebUrl: 'https://developers.kakao.com',
-                webUrl: 'https://developers.kakao.com',
-              },
-            },
-            {
-              title: '앱으로 보기',
-              link: {
-                mobileWebUrl: 'https://developers.kakao.com',
-                webUrl: 'https://developers.kakao.com',
-              },
-            },
-          ],
         });
       }
 
@@ -63,7 +43,7 @@ def auto_share_kakao():
       shareMessage();
     </script>
     """
-    html(js_code, height=0)
+    html(js_code, height=100)
 
 def logOut():
     st.session_state.signedIn = False

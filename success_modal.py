@@ -4,36 +4,32 @@ import streamlit as st
 from web_backend import getUsername, getCurrentSliceNum
 
 def sendMessageToBuddy(file, text):
-    # 파일을 Base64로 인코딩
     if not file:
         return st.warning('인증 사진을 넣어주세요')
 
     base64_image = base64.b64encode(file.getvalue()).decode()
     image_url = f"data:image/jpeg;base64,{base64_image}"
 
-    # 카카오 SDK 스크립트와 공유 버튼 생성 코드
+    # 카카오톡 공유 기능을 바로 실행
     html_code = f"""
-    <div id="kakaotalk-sharing-btn"></div>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script>
-        Kakao.init('7476b316e9eedddc848473346eab3335'); // 앱 생성 시 받은 JavaScript 키 입력
-        Kakao.Share.createDefaultButton({{
-            container: '#kakaotalk-sharing-btn',
+        Kakao.init('7de421478d7cb865dd848740af8758d8'); // 앱 생성 시 받은 JavaScript 키 입력
+        Kakao.Share.sendDefault({{
             objectType: 'feed',
             content: {{
                 title: '{getUsername()}님의 {getCurrentSliceNum()-1}번째 한입 {st.session_state.nowGoal}의 인증이에요!',
                 description: "{text}",
                 imageUrl: "{image_url}",
                 link: {{
-                    mobileWebUrl: 'https://orengepage.onrender.com',
-                    webUrl: 'https://orengepage.onrender.com',
+                    mobileWebUrl: 'https://orengewebapp.onrender.com',
+                    webUrl: 'https://orengewebapp.onrender.com',
                 }},
-            }},
+            }}
         }});
-    </script>
-    """
-    # Streamlit 페이지에 HTML 코드 삽입
-    html(html_code, height=100)
+    </script>"""
+    
+    html(html_code, height=0)  # 높이를 0으로 설정하여 보이지 않게 함
 
 
 

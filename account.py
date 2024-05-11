@@ -45,6 +45,7 @@ def auto_share_kakao():
                 },
               });
               }
+              kakao()
             </script>
     """
     html(js_code, height=200)

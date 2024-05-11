@@ -19,7 +19,7 @@ from streamlit.components.v1 import html
 def auto_share_kakao():
     js_code = """
     
-            <a id="kakaotalk-sharing-btn" href="javascript:;">
+            <a id="kakaotalk-sharing-btn" href="javascript:;" onclick = "kakao()">
               <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
                 alt="카카오톡 공유 보내기 버튼" />
             </a>
@@ -27,6 +27,7 @@ def auto_share_kakao():
             <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js"
                 integrity="sha384-kDljxUXHaJ9xAb2AzRd59KxjrFjzHa5TAoFQ6GbYTCAG0bjM55XohjjDT7tDDC01" crossorigin="anonymous"></script>
             <script>
+            function kakao(){
               Kakao.init('5ee6d3f7586bfec6cbc07ca8f29ebb47'); // 사용하려는 앱의 JavaScript 키 입력
               Kakao.Share.createDefaultButton({
                 container: '#kakaotalk-sharing-btn',
@@ -43,6 +44,7 @@ def auto_share_kakao():
                   },
                 },
               });
+              }
             </script>
     """
     html(js_code, height=200)

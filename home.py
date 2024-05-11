@@ -45,7 +45,12 @@ def app():
             with st.container(height=180):
                 st.session_state.bool_list = getCurrentSliceBoolList()
                 for i in range(1,getSliceNum(week= getCurrentGoalNum())+1):
-                    slice_string = f'{i}단계 한입 - {getCurrentGoalField()['slice_info'][i-1]}'
+                    # 먼저 변수를 계산
+                    current_goal_field = getCurrentGoalField()['slice_info'][i-1]
+                    
+                    # 계산된 변수를 f-string 안에서 사용
+                    slice_string = f'{i}단계 한입 - {current_goal_field}'
+
                     if st.session_state.bool_list[i-1]:
                         styledText(text=slice_string, size=20, color='green', is_bold=True)
                     elif i == cur:

@@ -31,8 +31,8 @@ def auto_share_kakao():
             description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
             imageUrl: 'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
             link: {
-              mobileWebUrl: 'https://developers.kakao.com',
-              webUrl: 'https://developers.kakao.com',
+              mobileWebUrl: 'https://orengewebapp.onrender.com',
+              webUrl: 'https://orengewebapp.onrender.com',
             },
           },
           social: {

@@ -18,7 +18,7 @@ from streamlit.components.v1 import html
 
 def auto_share_kakao():
     js_code = """
-    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js"
       integrity="sha384-kDljxUXHaJ9xAb2AzRd59KxjrFjzHa5TAoFQ6GbYTCAG0bjM55XohjjDT7tDDC01" crossorigin="anonymous"></script>
     <script>
       Kakao.init('7de421478d7cb865dd848740af8758d8'); // 사용하려는 앱의 JavaScript 키 입력

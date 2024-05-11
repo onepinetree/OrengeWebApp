@@ -1,0 +1,6 @@
+streamlit
+openai
+firebae_admin
+numpy
+matplotlib
+plotly

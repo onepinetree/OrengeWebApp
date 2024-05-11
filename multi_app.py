@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-import home, account, piecing, whybuilding as whybuilding, buddy_board
+import home, account, piecing, whybuilding, buddy_board
 from web_backend import getBuddyUsername, returnToMe
 
 # 윗 배너의 타이틀 설정

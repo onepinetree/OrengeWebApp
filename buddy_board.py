@@ -69,15 +69,20 @@ def app():
                     with st.expander('조각높이 퀘스트 확인해보기'):
                         with st.container(height=300):
                             for i in range(10):
-                                st.write(f'{i+1}번째 퀘스트')
-                                st.write('')
+                                st.write('높이 3 - 오랜지 성장')
+                                st.write('높이 10 - 오랜지 성장')
+                                st.write('높이 20 - 오랜지 성장')
+                                st.write('높이 40 - 오랜지 성장')
+                                st.write('높이 60 - 오랜지 성장')
+                                st.write('높이 80 - 오랜지 성장')
+                                st.write('높이 100 - ???')
 
 
                     #st.metric("다음 퀘스트", "캐릭터 Lv.5 로 진화", "1 조각")
 
             with col9: 
                 st.container(height=15, border=False)
-                with st.expander('나의 성장 보기'):
+                with st.expander('버디의 성장 그래프'):
                     with st.container():
                         with st.container(height = 400, border=True):
                             st.subheader(f":orange[{getUsername()}]님의 성장!")

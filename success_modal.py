@@ -33,17 +33,17 @@ def sendMessageToBuddy(file, text):
 
 
 
-@st.experimental_dialog("오늘의 한입을 사진과 글로 인증해요!")
+@st.experimental_dialog("오늘의 한입은 어떠셨나요?")
 def certifyModal():
-    certify_file = st.file_uploader(label = '인증 사진을 업로드 해요', type=None, accept_multiple_files=False, key='Image Acceptor', help='도움글귀', on_change=None, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    certify_writing = st.text_input(label = '인증글을 작성해요', value = '오늘의 인증을 완성해요☺️')
+    #certify_file = st.file_uploader(label = '인증 사진을 업로드 해요', type=None, accept_multiple_files=False, key='Image Acceptor', help='도움글귀', on_change=None, args=None, kwargs=None, disabled=False, label_visibility="visible")
+    certify_writing = st.text_input(label = '오늘의 후기를 작성해봐요')
     st.container(height=30, border=False)
 
     a,left_col,b, right_col,c = st.columns([1,5,1,5,1])
     with left_col:
-        if st.button("카카오톡 인증하기"):
+        if st.button("달성완료"):
             sendMessageToBuddy(certify_file, certify_writing)
     with right_col:
-        if st.button("나가기"):
+        if st.button("취소"):
             st.rerun()
 

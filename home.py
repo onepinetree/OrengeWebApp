@@ -83,7 +83,7 @@ def app():
                 right_col.metric("조각 높이", f"{y_data[-1]} 조각", f"{getCurrentCombo()} 조각")
                 left_col.container(height= 10, border=False)
 
-                with st.expander('조각높이 리워드 확인'):
+                with st.expander('조각 높이 리워드 확인'):
                     with st.container(height=300):
                             st.write('높이 3 - 오랜지 성장')
                             st.write('높이 10 - 오랜지 성장')

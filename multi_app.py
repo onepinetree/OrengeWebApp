@@ -23,7 +23,7 @@ class MultiApp:
             app = option_menu(
             #app도 optinon_menu를 통해서 input을 받는것.
                 menu_title='OrengeWebApp ',
-                options=['나의 오랜지','와이빌딩','조각하기','버디','Account'],
+                options=['나의 오랜지','와이빌딩','조각하기','버디의 오랜지','Account'],
                 icons=['house-fill','universal-access','sort-down','person-heart','person-circle'],
                 menu_icon='chat-text-fill',
                 default_index=1,
@@ -48,6 +48,6 @@ class MultiApp:
         if app == '와이빌딩':
             returnToMe()
             whybuilding.app() 
-        if app == '버디':
+        if app == '버디의 오랜지':
             st.session_state.username = getBuddyUsername()
             buddy_board.app() 

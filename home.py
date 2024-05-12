@@ -38,7 +38,7 @@ def app():
             styledText(
                             text =  f'조각: {getCurrentGoal()}',
                             size =  35,
-                            color =  '#FAEBD7',
+                            color =  '#000000',
                             is_bold = True
                         )
             cur = getCurrentSliceNum()
@@ -57,7 +57,7 @@ def app():
                         # 오렌지색 이모지와 함께 특별한 텍스트 강조
                         styledText(text=slice_string, size=20, color='orange', is_bold=True)
                     else:
-                        styledText(text=slice_string, size=20, color='white', is_bold=True)
+                        styledText(text=slice_string, size=20, color='black', is_bold=True)
                 st.button('다음 조각으로 넘어가기', on_click = passWeek)
 
 

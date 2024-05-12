@@ -30,7 +30,7 @@ def app():
                     st.toast('이번 조각의 모든 한입 성공! 다음주 조각으로 넘어가요~', icon = '🍊')
                     certifyModal()
 
-            if st.button('skip', on_click=skipRecord, args=(getCurrentGoalNum(),)) and not getCurrentSliceNum() == getSliceNum(week=getCurrentGoalNum()):
+            if st.button('SKIP', on_click=skipRecord, args=(getCurrentGoalNum(),)) and not getCurrentSliceNum() == getSliceNum(week=getCurrentGoalNum()):
                 st.snow()
     with col3:
         with st.container(height = 300, border=True):

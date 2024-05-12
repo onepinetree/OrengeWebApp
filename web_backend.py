@@ -171,7 +171,7 @@ def skipRecord(week:int) -> None:
     '''조각을 스킵하는 함수'''
     new_field = getCurrentGoalField()
     if getCurrentSliceNum() == getSliceNum(week=getCurrentGoalNum()):
-        st.success('조각의 마지막 한입은 스킵할 수 없어요 ㅜㅜ')
+        st.success('조각의 마지막 한입은 스킵할 수 없어요🥲')
     if getSliceNum(week=week) > getCurrentSliceNum():
         new_field['current_slice']+=1
 

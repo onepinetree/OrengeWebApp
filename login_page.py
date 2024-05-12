@@ -66,29 +66,29 @@ def app():
     col1, col2, col3 = st.columns([1,3,1])
 
     with col2:
-        st.title('Hello')
+        st.title('🍊조각에 오신것을 환영해요')
 
         if not st.session_state.signedIn:
-            choice = st.selectbox('Login/Signup', ['Login', 'Sign Up'])
+            choice = st.selectbox('로그인/화원가입', ['로그인', '회원가입'])
 
-            if choice == 'Login':
-                email = st.text_input('Email Address')
-                password = st.text_input('Password',type='password')
+            if choice == '로그인':
+                email = st.text_input('이메일 주소')
+                #password = st.text_input('Password',type='password')
                 #text_input에 type을 결정하게되면 그에 따라 인풋창이 약간 달라진다.
-                st.button('Login', on_click=logIn)
+                st.button('로그인', on_click=logIn)
 
             else:
                 email = st.text_input('이메일')
-                password = st.text_input('비밀번호',type='password')
-                username = st.text_input('앞으로 사용하실 닉네임을 입력해주세요')
-                buddy_username = st.text_input('버디의 닉네임을 입력해주세요')
+                #password = st.text_input('비밀번호',type='password')
+                username = st.text_input('앞으로 사용하실 닉네임을 입력해 주세요')
+                buddy_username = st.text_input('버디의 닉네임을 입력해 주세요')
 
 
-                if st.button('회원가입 완료하기'):
+                if st.button('회원가입 완료'):
                     try:
                         auth.create_user(email = email, password = password, uid = username)
                         signUp(username, buddy_username)
-                        st.success('회원가입이 성공적으로 마무리 되었어요! 이제 로그인을 통해 시작해보아요')
+                        st.success('회원가입이 성공적으로 마무리 되었어요! 이제 로그인을 통해 시작해 보아요')
                         st.balloons()
                     except:
                         st.warning('비밀번호가 6자리 이상이 아니거나 이미 있는 닉네임입니다.')

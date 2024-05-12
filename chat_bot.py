@@ -69,7 +69,7 @@ def PieceChatBotUI():
         left_dummy_col,chat_col,right_dummy_col = st.columns([1,100,1])
 
         if ("slice_messages" not in st.session_state) or st.session_state.slice_messages == []:
-            st.session_state["slice_messages"] = [{"role": "assistant", "content": "조각가에게 '안녕'이라고 인사를 건네주세요!"}]
+            st.session_state["slice_messages"] = [{"role": "assistant", "content": "조각 도우미에게 '안녕'이라고 인사를 건네주세요!"}]
 
         for msg in st.session_state.slice_messages:
             chat_col.chat_message(msg["role"]).write(msg["content"])

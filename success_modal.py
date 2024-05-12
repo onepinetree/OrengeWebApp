@@ -39,11 +39,9 @@ def certifyModal():
     certify_writing = st.text_input(label = '오늘의 후기를 작성해봐요')
     st.container(height=30, border=False)
 
-    a,left_col,b, right_col,c = st.columns([1,5,1,5,1])
-    with left_col:
+    a,left_col, main_col, right_col,c = st.columns([1,5,1,5,1])
+    with main_col:
         if st.button("달성완료"):
             sendMessageToBuddy(certify_file, certify_writing)
-    with right_col:
-        if st.button("취소"):
-            st.rerun()
+
 

@@ -19,7 +19,7 @@ def app():
             st.subheader(f':orange[{getCurrentSlice()}]')
             st.write('')
 
-            if st.button('인증 버튼', on_click=successRecord, args=(getCurrentGoalNum(),)):
+            if st.button('달성완료!', on_click=successRecord, args=(getCurrentGoalNum(),)):
                 if not getCurrentSliceBoolList()[-1] == True:
                     st.balloons()
                     st.toast('오늘의 한입 달성 성공!', icon = '🍊')
@@ -83,24 +83,28 @@ def app():
                 right_col.metric("조각 높이", f"{y_data[-1]} 조각", f"{getCurrentCombo()} 조각")
                 left_col.container(height= 10, border=False)
 
-                with st.expander('조각높이 퀘스트 확인해보기'):
+                with st.expander('조각높이 리워드 확인'):
                     with st.container(height=300):
-                        for i in range(10):
-                            st.write(f'{i+1}번째 퀘스트')
-                            st.write('')
+                            st.write('높이 3 - 오랜지 성장')
+                            st.write('높이 10 - 오랜지 성장')
+                            st.write('높이 20 - 오랜지 성장')
+                            st.write('높이 40 - 오랜지 성장')
+                            st.write('높이 60 - 오랜지 성장')
+                            st.write('높이 80 - 오랜지 성장')
+                            st.write('높이 100 - ???')
 
+                            
 
                 #st.metric("다음 퀘스트", "캐릭터 Lv.5 로 진화", "1 조각")
 
         with col9: 
             st.container(height=15, border=False)
-            with st.expander('나의 성장 보기'):
+            with st.expander('나의 성장 그래프'):
                 with st.container():
                     with st.container(height = 400, border=True):
                         st.subheader(f":orange[{getUsername()}]님의 성장!")
                         x_data, y_data = getComboRecord()
                         st.line_chart(y_data)
-                        #st.line_chart([1,2,4,7,9,11,13,14,14,15,16,18])
                      
 
 

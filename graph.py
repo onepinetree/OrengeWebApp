@@ -12,8 +12,8 @@ def draw_progress_bar(percentage, title="진행 상태"):
     # 배경 이미지 설정
     #ax.imshow(image, aspect='auto', extent=[0, 100, -1, 1])  # y 축 범위 조정
     
-    fig.patch.set_facecolor('black')  # 전체 배경색 설정
-    ax.set_facecolor('black')  # 축 배경색 설정
+    fig.patch.set_facecolor('white')  # 전체 배경색 설정
+    ax.set_facecolor('white')  # 축 배경색 설정
     ax.set_xlim(0, 100)  # x축 범위 설정
     ax.set_xticks(range(0, 101, 10))  # x축 눈금 설정
     ax.set_yticks([])  # y축 눈금 숨기기

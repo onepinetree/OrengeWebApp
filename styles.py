@@ -4,7 +4,7 @@ from web_backend import getUsername
 def styleWelcome(username: str)->None:
     style_string = '''
     <style>
-        .small-white { font-size: 22px; color: white; font-weight: bold; }
+        .small-white { font-size: 22px; color: black; font-weight: bold; }
         .large-orange { font-size: 22px; color: #FFA500; font-weight: bold; }
     </style>
     '''

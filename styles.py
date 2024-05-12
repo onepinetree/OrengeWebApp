@@ -16,7 +16,7 @@ def welcomeText()->None:
     # getUsername() 함수는 사용자의 이름을 반환하는 로직이어야 함
     styleWelcome(getUsername())
 
-def styledText(text: str, size: int, color: str = 'white', is_bold: bool = True)-> None:
+def styledText(text: str, size: int, color: str = 'black', is_bold: bool = True)-> None:
     unique_class = f"text-{size}-{color.replace('#', '')}"
     bold = "font-weight: bold;" if is_bold else ""
     style_string = f'<style>.{unique_class} {{ font-size: {size}px; color: {color}; {bold} }}</style>'

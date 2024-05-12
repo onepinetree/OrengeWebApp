@@ -22,7 +22,7 @@ def app():
                 styledText(
                                 text =  f'조각: {getCurrentGoal()}',
                                 size =  35,
-                                color =  '#FAEBD7',
+                                color =  '#000000',
                                 is_bold = True
                             )
                 cur = getCurrentSliceNum()
@@ -41,7 +41,7 @@ def app():
                         elif st.session_state.bool_list[i-1]:
                             styledText(text=slice_string, size=20, color='green', is_bold=True)
                         else:
-                            styledText(text=slice_string, size=20, color='white', is_bold=True)
+                            styledText(text=slice_string, size=20, color='black', is_bold=True)
 
 
         col4, col5 = st.columns(2)

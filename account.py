@@ -64,10 +64,10 @@ def app():
     st.text('Email id: ' + st.session_state.useremail)
     st.button('Sign out', on_click = logOut)
 
-    st.header('사용법 동영상 임베딩')
+    st.header('사용법 동영상 임베딩 -> 사진')
     
-    if st.button("카카오톡 공유하기"):
-        auto_share_kakao()
+    # if st.button("카카오톡 공유하기"):
+    #     auto_share_kakao()
 
 
 

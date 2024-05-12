@@ -13,7 +13,7 @@ def app():
         PieceChatBotUI()
 
     with col3:
-        orenge = st.text_input(placeholder=getOrenge(), label='오랜지를 입력해봐요.')
+        orenge = st.text_input(placeholder=getOrenge(), label='🍊오랜지를 입력해 봐요.')
         setOrenge(orenge)
 
         with st.container():  # 중복 column을 사용하려면 col 내부에 컨테이너를 추가하고 그 안에서 col을 다시 추가해야함,

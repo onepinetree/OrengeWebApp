@@ -60,9 +60,9 @@ def logOut():
 
 def app():
 
-    st.text('Name '+ st.session_state.username)
-    st.text('Email id: ' + st.session_state.useremail)
-    st.button('Sign out', on_click = logOut)
+    st.text('이름: '+ st.session_state.username)
+    st.text('이메일 주소: ' + st.session_state.useremail)
+    st.button('로그아웃', on_click = logOut)
 
     st.header('사용법 동영상 임베딩 -> 사진')
     

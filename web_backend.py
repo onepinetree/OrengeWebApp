@@ -6,8 +6,8 @@ import datetime
 warnings.filterwarnings("ignore", category=UserWarning)
 
 if not firebase_admin._apps:
-    cred = credentials.Certificate('/etc/secrets/orengewebapp.json')
-    #cred = credentials.Certificate('orengewebapp-3c92d3f605ed.json')
+    #cred = credentials.Certificate('/etc/secrets/orengewebapp.json')
+    cred = credentials.Certificate('orengewebapp-3c92d3f605ed.json')
     app = firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -158,8 +158,6 @@ def successRecord(week:int) -> None:
 
         recordCombo()
         recordComboToGraph()
-    else:
-        pass
 
 #successRecord()
 
@@ -429,4 +427,24 @@ def recordComboToGraph() -> None:
             'last_verified': today.strftime('%Y-%m-%d')
 
         })
+
+
+def orenge_picture_num(x):
+    # 각 범위에 따라 반환할 값을 설정
+    if x < 3:
+        return 1
+    elif x < 10:
+        return 2
+    elif x < 20:
+        return 3
+    elif x < 40:
+        return 4
+    elif x < 60:
+        return 5
+    elif x < 80:
+        return 6
+    elif x < 100:
+        return 7
+    else:
+        return 8  # 100 초과인 경우
 

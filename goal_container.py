@@ -1,5 +1,5 @@
 import streamlit as st
-from web_backend import getGoal, getSliceNum, getSlice, addSlice, deleteSlice, fixGoal, fixSlice
+from web_backend import getGoal, getSliceNum, getSlice, addSlice, deleteSlice, fixGoal, fixSlice, getCurrentGoalNum
 import time
 
 @st.experimental_fragment
@@ -21,12 +21,13 @@ def goalContainer(week_num: int):
 
         with st.expander('한입보기'):
             col1, col2 = st.columns(2)
+            slice_num = int(getSliceNum(week=week_num)/2) if (getSliceNum(week=week_num)%2 == 0) else int(getSliceNum(week=week_num)/2) + 1
             for i in range(1, piece_num + 1):
                 # new_slice 값을 정의하기 위한 기본값 가져오기
                 default_value = getSlice(week=week_num, slice=i)
 
                 # i가 홀수일 경우 col1에, 짝수일 경우 col2에 입력 필드 배치
-                if i % 2 != 0:
+                if i <= slice_num:
                     with col1:
                         new_slice = st.text_input(
                             label=f"{i}번째 한입:",
@@ -56,6 +57,7 @@ def goalContainer(week_num: int):
                     if st.button(label = '수정완료', key=f'{week_num}revise_button'):
                         time.sleep(1)
                         st.toast('한입이 수정 완료되었어요!', icon = '🍊')
+
 
 
 

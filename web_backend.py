@@ -47,10 +47,7 @@ def getOrenge() -> str :
 def setOrenge(new_orenge: str) -> None:
     '''오랜지 설정함수'''
     users_ref = db.collection('user').document(getUsername())
-    if getOrenge() != '':
-        st.toast('오랜지는 수정할 수 없어요. 관리자에게 문의해주세요.')
-    else:
-        users_ref.update({'orenge' : new_orenge,})
+    users_ref.update({'orenge' : new_orenge,})
 
 
 def getGoal(week: int) -> str:
@@ -162,17 +159,16 @@ def successRecord(week:int) -> None:
         recordCombo()
         recordComboToGraph()
     else:
-        st.success('조각 부분에서 다음 조각으로 넘어가보세요~')
+        pass
 
 #successRecord()
 
 
-def skipRecord(week:int) -> None:
+def skipRecord() -> None:
     '''조각을 스킵하는 함수'''
     new_field = getCurrentGoalField()
-    if getCurrentSliceNum() == getSliceNum(week=getCurrentGoalNum()):
-        st.success('조각의 마지막 한입은 스킵할 수 없어요😭')
-    if getSliceNum(week=week) > getCurrentSliceNum():
+
+    if getSliceNum(week=getCurrentGoalNum()) > getCurrentSliceNum():
         new_field['current_slice']+=1
 
         users_ref = db.collection("user").document(getUsername())

@@ -5,8 +5,8 @@ import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
 
 if not firebase_admin._apps:
-    #cred = credentials.Certificate('orengewebapp-3c92d3f605ed.json')
-    cred = credentials.Certificate('/etc/secrets/orengewebapp.json')
+    cred = credentials.Certificate('orengewebapp-3c92d3f605ed.json')
+    #cred = credentials.Certificate('/etc/secrets/orengewebapp.json')
 
     app = firebase_admin.initialize_app(cred)
 
@@ -16,6 +16,9 @@ def getThreadId(id: str) -> str:
     users_ref = db.collection("user").document(id)
     return users_ref.get().to_dict().get('thread_id', '')
     
+def setThreadId(id: str) :
+    users_ref = db.collection("user").document(id)
+    users_ref.update({'thread_id' : getThreadId(),})
     
 def saveChat(username: str, role: str, prompt: str) -> None:
     '''username과 지금 대화의 role과 그의 prompt를 입력하면 시간과 함께 DB에 저장되는 함수'''
@@ -82,7 +85,5 @@ def runAndRetrieveData(assistant_id : str, thread_id : str) -> str:
             break
         else:
             time.sleep(2)
-
-
 
 

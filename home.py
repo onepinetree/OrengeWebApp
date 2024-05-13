@@ -3,7 +3,7 @@ import numpy as np
 from web_backend import getUsername, getCurrentSlice, successRecord, skipRecord, getCurrentGoal, getCurrentSliceNum, getCurrentGoalField, passWeek, getSliceNum, getCurrentGoalNum, getCurrentSuccessRate, getComboRecord, getCurrentCombo, getCurrentSliceBoolList
 from styles import styledText, welcomeText
 from graph import draw_progress_bar
-from success_modal import certifyModal
+from success_modal import certifyModal, ReallySkipModal
 
 
 def app():
@@ -19,19 +19,28 @@ def app():
             st.subheader(f':orange[{getCurrentSlice()}]')
             st.write('')
 
-            if st.button('달성완료!', on_click=successRecord, args=(getCurrentGoalNum(),)):
-                if not getCurrentSliceBoolList()[-1] == True:
-                    st.balloons()
-                    st.toast('오늘의 한입 달성 성공!', icon = '🍊')
-                    certifyModal()
-                else: 
-                    st.balloons()
-                    st.balloons()
-                    st.toast('이번 조각의 모든 한입 성공! 다음주 조각으로 넘어가요~', icon = '🍊')
-                    certifyModal()
+            if st.button('달성완료!'):
+                if getCurrentSlice() == '':
+                    st.success("오늘의 한입이 없어요. '조각하기'에서 한입을 설정해주세요")
+                else:
+                    successRecord(getCurrentGoalNum())
+                    if not getCurrentSliceBoolList()[-1] == True:
+                        st.balloons()
+                        st.toast('오늘의 한입 달성 성공!', icon = '🍊')
+                        certifyModal()
+                    else: 
+                        passWeek()
 
-            if st.button('SKIP', on_click=skipRecord, args=(getCurrentGoalNum(),)) and not getCurrentSliceNum() == getSliceNum(week=getCurrentGoalNum()):
-                st.snow()
+
+            if st.button('SKIP'):
+                if getCurrentSlice() == '':
+                    st.success("오늘의 한입이 없어요. '조각하기'에서 한입을 설정해주세요")
+                else:
+                    if getCurrentSliceNum() == getSliceNum(week=getCurrentGoalNum()):
+                        st.toast('조각의 마지막 한입은 스킵할 수 없어요😭')
+                    else:
+                        ReallySkipModal()
+            
     with col3:
         with st.container(height = 300, border=True):
             #st.title(f'목표: {getCurrentGoal()}')
@@ -58,7 +67,6 @@ def app():
                         styledText(text=slice_string, size=20, color='orange', is_bold=True)
                     else:
                         styledText(text=slice_string, size=20, color='black', is_bold=True)
-                st.button('다음 조각으로 넘어가기', on_click = passWeek)
 
 
     col4, col5 = st.columns(2)
@@ -104,7 +112,7 @@ def app():
                     with st.container(height = 400, border=True):
                         st.subheader(f":orange[{getUsername()}]님의 성장!")
                         x_data, y_data = getComboRecord()
-                        st.line_chart(y_data)
+                        st.line_chart(y_data)      
                      
 
 

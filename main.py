@@ -4,7 +4,6 @@ import login_page, multi_app
 st.set_page_config(
     page_title="OrengeWebApp",  # 웹 앱의 타이틀
     layout="wide",              # 레이아웃을 'wide'로 설정
-    theme={"base": "light"}     # 테마를 'light' 모드로 설정
 )
 
 

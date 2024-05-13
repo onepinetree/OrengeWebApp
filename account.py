@@ -1,19 +1,8 @@
 import streamlit as st
-import firebase_admin
-from firebase_admin import credentials, firestore
 import warnings
-from web_backend import getUsername, getCurrentSlice, getCurrentSliceNum
 warnings.filterwarnings("ignore", category=UserWarning)
-
-
-if not firebase_admin._apps:
-    cred = credentials.Certificate('orengewebapp-3c92d3f605ed.json')
-    firebase_admin.initialize_app(cred)
-db = firestore.client()
-users_ref = db.collection("user")
-
-
 from streamlit.components.v1 import html
+from chatbot_backend import setThreadId
 
 
 def auto_share_kakao():
@@ -57,7 +46,6 @@ def logOut():
     st.experimental_rerun()  # 페이지 리로드
 
 
-
 def app():
 
     st.text('이름: '+ st.session_state.username)
@@ -65,9 +53,12 @@ def app():
     st.button('로그아웃', on_click = logOut)
 
     st.header('사용법 동영상 임베딩 -> 사진')
+
+    st.button('대화 내용 초기화 하기', on_click=setThreadId)
     
     # if st.button("카카오톡 공유하기"):
     #     auto_share_kakao()
+
 
 
 

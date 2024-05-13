@@ -10,8 +10,8 @@ from web_backend import updateComboOnLogin
 warnings.filterwarnings("ignore", category=UserWarning)
 
 if not firebase_admin._apps:
-    #cred = credentials.Certificate('orengewebapp-3c92d3f605ed.json')
-    cred = credentials.Certificate('/etc/secrets/orengewebapp.json')
+    cred = credentials.Certificate('orengewebapp-3c92d3f605ed.json')
+    #cred = credentials.Certificate('/etc/secrets/orengewebapp.json')
     app = firebase_admin.initialize_app(cred)
 
 db = firestore.client()

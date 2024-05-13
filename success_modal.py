@@ -37,7 +37,11 @@ def sendMessageToBuddy(file, text):
 @st.experimental_dialog("오늘의 한입은 어떠셨나요?")
 def certifyModal():
     #certify_file = st.file_uploader(label = '인증 사진을 업로드 해요', type=None, accept_multiple_files=False, key='Image Acceptor', help='도움글귀', on_change=None, args=None, kwargs=None, disabled=False, label_visibility="visible")
-    certify_writing = st.text_input(label = '오늘의 후기를 작성해봐요')
+    if user_input := st.text_input(label = '오늘의 후기를 작성해봐요'):
+        st.write("오늘의 한입 : 블라블라")  # 실제 내용으로 채울 부분
+        st.write("인증여부 : 성공")
+        st.write(f"인증일시 : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        st.write(f"인증글 : {user_input}")
     st.container(height=30, border=False)
 
     left_col, main_col, right_col = st.columns([1,1,1])

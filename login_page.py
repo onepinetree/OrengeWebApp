@@ -57,7 +57,7 @@ def app():
             'current_slice' : 1,
             'goal' : '',
             'slice_bool' : [False for i in range(7)],
-            'slice_info' : ['' for i in range(7)],
+            'slice_info' : ['조각하기'] + ['' for i in range(6)],
             'slice_num' : 7,
         })
 

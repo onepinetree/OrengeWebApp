@@ -3,6 +3,7 @@ import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
 from streamlit.components.v1 import html
 from chatbot_backend import setThreadId
+from web_backend import getUsername
 
 
 def auto_share_kakao():
@@ -54,29 +55,10 @@ def app():
 
     st.header('사용법 동영상 임베딩 -> 사진')
 
-    st.button('대화 내용 초기화 하기', on_click=setThreadId)
+    if st.button('대화 내용 초기화 하기'):
+        setThreadId(id = getUsername())
     
     # if st.button("카카오톡 공유하기"):
     #     auto_share_kakao()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

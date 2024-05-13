@@ -26,7 +26,7 @@ class MultiApp:
                 options=['나의 오랜지','와이빌딩','조각하기','버디의 오랜지','Account'],
                 icons=['house-fill','universal-access','sort-down','person-heart','person-circle'],
                 menu_icon='chat-text-fill',
-                default_index=1,
+                default_index=0,
                 styles={
                     "container": {"padding": "5!important","background-color":'black'},
                     "icon": {"color": "white", "font-size": "23px"}, 

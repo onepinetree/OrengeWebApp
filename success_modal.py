@@ -1,7 +1,8 @@
 import base64
 from streamlit.components.v1 import html
 import streamlit as st
-from web_backend import getUsername, getCurrentSliceNum
+from web_backend import getUsername, getCurrentSliceNum, skipRecord
+
 
 def sendMessageToBuddy(file, text):
     if not file:
@@ -39,9 +40,17 @@ def certifyModal():
     certify_writing = st.text_input(label = '오늘의 후기를 작성해봐요')
     st.container(height=30, border=False)
 
-    a,left_col, main_col, right_col,c = st.columns([1,5,1,5,1])
+    left_col, main_col, right_col = st.columns([1,1,1])
     with main_col:
         if st.button("달성완료"):
-            sendMessageToBuddy(certify_file, certify_writing)
+            #sendMessageToBuddy(certify_file, certify_writing)
+            pass
+
+@st.experimental_dialog("😭정말 다음 한입으로 넘어가실껀가요?")
+def ReallySkipModal():
+
+    if st.button('다음 조각으로 넘어가기'):
+        skipRecord()
+        st.snow()
 
 

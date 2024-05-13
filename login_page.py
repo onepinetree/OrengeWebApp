@@ -33,7 +33,7 @@ def app():
 
             #updateComboOnLogin()
         except:
-            st.warning('Login Failed')
+            st.warning('로그인이 되지 않았어요. 로그인 버튼을 한번 더 눌렀는데도 해결되지 않는다면 회원가입을 시도해보거나 관리자에게 문의해주세요')
             
 
 
@@ -86,16 +86,17 @@ def app():
 
                 if st.button('회원가입 완료'):
                     try:
-                        auth.create_user(email = email, password = password, uid = username)
+                        auth.create_user(email = email, uid = username)
                         signUp(username, buddy_username)
                         st.success('회원가입이 성공적으로 마무리 되었어요! 이제 로그인을 통해 시작해 보아요')
                         st.balloons()
                     except:
-                        st.warning('비밀번호가 6자리 이상이 아니거나 이미 있는 닉네임입니다.')
+                        st.warning('이메일 주소가 올바르지 않거나 이미 있는 닉네임이에요')
                        
 
                 #선택바에서 선택한 값에 다르게 UI가 다르게 된다. 이걸 활용하면 입력창이 한번씩 나오는것도 구현 할 수 있지 않을까?
                 #회원가입 요건 안맞으면 나오는 알림들도 구현해야함
+
 
 
 

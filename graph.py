@@ -46,3 +46,4 @@ def create_gauge_chart(value):
             ],
            }))
     return fig
+

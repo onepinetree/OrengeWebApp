@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-from web_backend import getUsername, getCurrentSlice, successRecord, skipRecord, getCurrentGoal, getCurrentSliceNum, getCurrentGoalField, passWeek, getSliceNum, getCurrentGoalNum, getCurrentSuccessRate, getComboRecord, getCurrentCombo, getCurrentSliceBoolList
+from web_backend import orenge_picture_num, getUsername, getCurrentSlice, successRecord, skipRecord, getCurrentGoal, getCurrentSliceNum, getCurrentGoalField, passWeek, getSliceNum, getCurrentGoalNum, getCurrentSuccessRate, getComboRecord, getCurrentCombo, getCurrentSliceBoolList
 from styles import styledText, welcomeText
 from graph import draw_progress_bar
 from success_modal import certifyModal, ReallySkipModal
@@ -12,7 +12,9 @@ def app():
     with col1:  
         with st.container(height = 300, border=True):
             welcomeText()
-            st.image('assests/orenge_icon.png', width=200)
+            x_data, y_data = getComboRecord()
+            num = orenge_picture_num(y_data[-1])
+            st.image(f'assests/{num}.png', width=200)
     with col2: 
         with st.container(height = 300, border=True):
             st.title('오늘의 한입: ')
@@ -23,13 +25,8 @@ def app():
                 if getCurrentSlice() == '':
                     st.success("오늘의 한입이 없어요. '조각하기'에서 한입을 설정해주세요")
                 else:
-                    successRecord(getCurrentGoalNum())
-                    if not getCurrentSliceBoolList()[-1] == True:
-                        st.balloons()
-                        st.toast('오늘의 한입 달성 성공!', icon = '🍊')
-                        certifyModal()
-                    else: 
-                        passWeek()
+                    st.balloons()
+                    certifyModal()
 
 
             if st.button('SKIP'):
@@ -74,7 +71,7 @@ def app():
         fig = draw_progress_bar(getCurrentSuccessRate(), "프로젝트 진행률")  # fig 받기
         st.pyplot(fig)  # 스트림릿에 그래프를 표시
     with col5:
-        fig = draw_progress_bar(getCurrentSuccessRate(), "프로젝트 진행률")  # fig 받기
+        fig = draw_progress_bar(((getCurrentGoalNum()-1)/8)*100, "프로젝트 진행률")  # fig 받기
         st.pyplot(fig)  # 스트림릿에 그래프를 표시
 
     data = np.random.rand(10,1)
@@ -112,7 +109,7 @@ def app():
                     with st.container(height = 400, border=True):
                         st.subheader(f":orange[{getUsername()}]님의 성장!")
                         x_data, y_data = getComboRecord()
-                        st.line_chart(y_data)      
+                        st.line_chart(y_data)     
                      
 
 

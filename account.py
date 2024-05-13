@@ -57,6 +57,9 @@ def app():
 
     if st.button('대화 내용 초기화 하기'):
         setThreadId(id = getUsername())
+        st.session_state.slice_messages = []
+        st.session_state.messages = []
+
     
     # if st.button("카카오톡 공유하기"):
     #     auto_share_kakao()

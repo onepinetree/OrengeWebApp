@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-from web_backend import getUsername, getCurrentCombo, getCurrentSlice, getCurrentGoal, getCurrentSliceNum, getCurrentGoalField, getSliceNum, getCurrentGoalNum, getCurrentSuccessRate, getComboRecord, getCurrentSliceBoolList
+from web_backend import orenge_picture_num, getUsername, getCurrentCombo, getCurrentSlice, getCurrentGoal, getCurrentSliceNum, getCurrentGoalField, getSliceNum, getCurrentGoalNum, getCurrentSuccessRate, getComboRecord, getCurrentSliceBoolList
 from styles import styledText, welcomeText
 from graph import draw_progress_bar
 
@@ -11,7 +11,10 @@ def app():
         with col1:  
             with st.container(height = 300, border=True):
                 welcomeText()
-                st.image('assests/orenge_icon.png', width=200)
+                x_data, y_data = getComboRecord()
+                num = orenge_picture_num(y_data[-1])
+                st.image(f'assests/{num}.png', width=200)
+
         with col2: 
             with st.container(height = 300, border=True):
                 st.title('오늘의 한입: ')

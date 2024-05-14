@@ -58,7 +58,7 @@ def PieceChatBotUI():
         openai_api_key = API_KEY
         #session_state에 저장해놓고 변수에 지정해놓은다.
         st.session_state.input_user_id = getUsername()
-        st.session_state.input_thread_id = getThreadId(id = getUsername())
+        st.session_state.input_thread_id = getThreadId(id = getUsername(), num = 2)
         input_user_id = st.session_state.input_user_id
         input_thread_id = st.session_state.input_thread_id
 
@@ -91,7 +91,7 @@ def PieceChatBotUI():
         st.session_state.slice_messages.append({"role": "assistant", "content": answer_prompt})
         saveChat(
             username = input_user_id,
-            role = 'assistant',
+            role = 'assistant_2',
             prompt = answer_prompt
             )
         chat_col.chat_message("assistant").write(answer_prompt)

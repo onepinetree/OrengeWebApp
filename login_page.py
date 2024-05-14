@@ -44,6 +44,7 @@ def app():
                     {
                     "signup_time": now.strftime("%Y-%m-%d-%H:%M"), 
                     "thread_id": createThread(), 
+                    "thread_id_2": createThread()
                     "username": username,
                     "total_goal_num" : 1,
                     "current_goal_num" : 1,

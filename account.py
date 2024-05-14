@@ -53,7 +53,7 @@ def app():
     st.text('이메일 주소: ' + st.session_state.useremail)
     st.button('로그아웃', on_click = logOut)
 
-    st.header('사용법 동영상 임베딩 -> 사진')
+    #st.header('사용법 동영상 임베딩 -> 사진')
 
     if st.button('대화 내용 초기화 하기'):
         setThreadId(id = getUsername())

@@ -70,7 +70,7 @@ def app():
         st.title('🍊조각에 오신것을 환영해요')
 
         if not st.session_state.signedIn:
-            choice = st.selectbox('로그인/화원가입', ['로그인', '회원가입'])
+            choice = st.selectbox('로그인/회원가입', ['로그인', '회원가입'])
 
             if choice == '로그인':
                 email = st.text_input('이메일 주소')
